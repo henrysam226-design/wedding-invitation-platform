@@ -18,7 +18,11 @@ const inviteMap = {
   }
 };
 
-export default function InvitePage({ params }: { params: { slug: string } }) {
+export function generateStaticParams() {
+  return [{ slug: 'ava-and-noah' }];
+}
+
+export default function InviteDynamicPage({ params }: { params: { slug: string } }) {
   const invite = inviteMap[params.slug as keyof typeof inviteMap];
 
   if (!invite) {
